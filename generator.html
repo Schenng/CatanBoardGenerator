@@ -9,8 +9,8 @@
   
   <body ng-controller="MainController">
     <h1>Deck</h1>
-    <p ng-repeat="card in deck track by $index">
-    	{{$index}} - {{card}}
+    <p ng-repeat="(key,value) in normalTokens track by $index">
+    	{{key}} - {{value}} - {{deck[$index]}}
     </p>
 
   </body>
@@ -22,7 +22,9 @@
 	app.controller('MainController', function($scope) {
 	 	
 	 	$scope.deck = [];
-	 	$scope.normal = {
+
+	 	//The tokens for a normal 3-4 game
+	 	$scope.normalTokens = {
 	 		'A': 5,
 	 		'B': 2,
 	 		'C': 6,
