@@ -25,7 +25,11 @@
 		</form>
 
 		<div>
-		    <p ng-repeat="(key,value) in normalTokens track by $index" style="margin:0px">
+		    <p ng-if="board.type == 'normal'" ng-repeat="(key,value) in normalTokens track by $index" style="margin:0px">
+		    	{{key}} - {{value}} - {{deck[$index]}}
+		    </p>
+
+		     <p ng-if="board.type == 'expansion'" ng-repeat="(key,value) in expansionTokens track by $index" style="margin:0px">
 		    	{{key}} - {{value}} - {{deck[$index]}}
 		    </p>
 		</div>
@@ -64,46 +68,76 @@
 	 		'Q': 3,
 	 		'R': 11,
 	 	}
-
+	 	//The tokens for the expansion 5-6 game
+	 	$scope.expansionTokens = {
+	 		'A': 2,
+	 		'B': 5,
+	 		'C': 4,
+	 		'D': 6,
+	 		'E': 3,
+	 		'F': 9,
+	 		'G': 8,
+	 		'H': 11,
+	 		'I': 11,
+	 		'J': 10,
+	 		'K': 6,
+	 		'L': 3,
+	 		'M': 8,
+	 		'N': 4,
+	 		'O': 8,
+	 		'P': 10,
+	 		'Q': 11,
+	 		'R': 12,
+	 		'T': 5,
+	 		'V': 9,
+	 		'W': 5,
+	 		'X': 9,
+	 		'Y': 12,
+	 		'Za': 3,
+	 		'Zb': 2,
+	 		'Zc': 6,
+	 	}
 
 	 	$scope.generateBoard = function () {
-	 		console.log($scope.board);
+	 		console.log('Board',$scope.board);
 
+	 		//Reset the Deck
 	 		$scope.deck = [];
 
+	 		//Build Deck
 	 		switch ($scope.board.type) {
 	 			case 'normal':
-
-	 				//Build Deck
-	 				$scope.addResources(3,'Brick');
-				 	$scope.addResources(3,'Ore');
-				 	$scope.addResources(4,'Wood');
-				 	$scope.addResources(4,'Sheep');
-				 	$scope.addResources(4,'Wheat');
-
-				 	//Scramble Deck
-				 	$scope.scrambleDeck($scope.board.key);
-
+	 				$scope.addToDeck(3,'Brick');
+				 	$scope.addToDeck(3,'Ore');
+				 	$scope.addToDeck(4,'Wood');
+				 	$scope.addToDeck(4,'Sheep');
+				 	$scope.addToDeck(4,'Wheat');
 	 			break;
 
 	 			case 'expansion':
-
+	 				$scope.addToDeck(4,'Brick');
+				 	$scope.addToDeck(4,'Ore');
+				 	$scope.addToDeck(6,'Wood');
+				 	$scope.addToDeck(6,'Sheep');
+				 	$scope.addToDeck(6,'Wheat');
 	 			break;
 
 	 			default:
-
 	 			break;
 	 		}
+
+	 		//Scramble Deck
+			$scope.scrambleDeck($scope.board.key);
 	 	}
 
-	 	$scope.addResources = function (count,resource) {
+	 	$scope.addToDeck = function (count,resource) {
 	 		for (var x = 0; x<count; x++) {
 	 			$scope.deck.push(resource);
 	 		}
 	 	}
 
 	 	$scope.scrambleDeck = function (key) {
-	 		console.log(key);
+	 		console.log('Scramble Key',key);
 
 	 		var j, x, i;
 		    for (i = $scope.deck.length; i; i--) {
