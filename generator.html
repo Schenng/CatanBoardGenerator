@@ -7,23 +7,28 @@
    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-
   </head>
   
   <body ng-controller="MainController">
   	<div>
 	    <h1>Generate Board</h1>
-	    
-	    <form>
+
+	    <form ng-submit="generateBoard()">
 	    	<div class="radio">
-			  <label><input type="radio" name="normal">Normal (3-4)</label>
+			  <label><input type="radio" ng-model="board.type" value="normal" name="normal">Normal (3-4)</label>
+			  <label><input type="radio" ng-model="board.type" value="expansion" name="normal">Expansion (5-6)</label>
 			</div>
-		    <h4> Scramble Key: </h4><input type="text" ng-model="scrambleKey"></input>
+
+		    <h4> Scramble Key: </h4>
+		    <input type="text" ng-model="board.key"></input>
+		    <input type="submit" id="submit" value="Submit" />
 		</form>
 
-	    <p ng-repeat="(key,value) in normalTokens track by $index">
-	    	{{key}} - {{value}} - {{deck[$index]}}
-	    </p>
+		<div>
+		    <p ng-repeat="(key,value) in normalTokens track by $index" style="margin:0px">
+		    	{{key}} - {{value}} - {{deck[$index]}}
+		    </p>
+		</div>
 	</div>
   </body>
  
@@ -33,8 +38,11 @@
 
 	app.controller('MainController', function($scope) {
 	 	
-	 	$scope.deck = [];
-
+	 	//Board Configuration
+	 	$scope.board = {
+	 		key: null,
+	 		type: 'normal',
+	 	}
 	 	//The tokens for a normal 3-4 game
 	 	$scope.normalTokens = {
 	 		'A': 5,
@@ -57,17 +65,56 @@
 	 		'R': 11,
 	 	}
 
+
+	 	$scope.generateBoard = function () {
+	 		console.log($scope.board);
+
+	 		$scope.deck = [];
+
+	 		switch ($scope.board.type) {
+	 			case 'normal':
+
+	 				//Build Deck
+	 				$scope.addResources(3,'Brick');
+				 	$scope.addResources(3,'Ore');
+				 	$scope.addResources(4,'Wood');
+				 	$scope.addResources(4,'Sheep');
+				 	$scope.addResources(4,'Wheat');
+
+				 	//Scramble Deck
+				 	$scope.scrambleDeck($scope.board.key);
+
+	 			break;
+
+	 			case 'expansion':
+
+	 			break;
+
+	 			default:
+
+	 			break;
+	 		}
+	 	}
+
 	 	$scope.addResources = function (count,resource) {
 	 		for (var x = 0; x<count; x++) {
 	 			$scope.deck.push(resource);
 	 		}
 	 	}
 
-	 	$scope.addResources(3,'Brick');
-	 	$scope.addResources(3,'Ore');
-	 	$scope.addResources(4,'Wood');
-	 	$scope.addResources(4,'Sheep');
-	 	$scope.addResources(4,'Wheat');
+	 	$scope.scrambleDeck = function (key) {
+	 		console.log(key);
+
+	 		var j, x, i;
+		    for (i = $scope.deck.length; i; i--) {
+		        j = Math.floor(Math.random() * i);
+		        x = $scope.deck[i - 1];
+		        $scope.deck[i - 1] = $scope.deck[j];
+		        $scope.deck[j] = x;
+		    }
+	 	}
+
+	 	
 
 	});
 </script>
