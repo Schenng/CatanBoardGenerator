@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="CatanBoardGenerator">
+  
+  <head>
+    <title></title>
+   	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+   
+  </head>
+  
+  <body ng-controller="MainController">
+    <h1>Deck</h1>
+    <p ng-repeat="card in deck track by $index">
+    	{{$index}} - {{card}}
+    </p>
+
+  </body>
+ 
+
+<script>
+  var app = angular.module('CatanBoardGenerator', []);
+
+	app.controller('MainController', function($scope) {
+	 	
+	 	$scope.deck = [];
+	 	$scope.normal = {
+	 		'A': 5,
+	 		'B': 2,
+	 		'C': 6,
+	 		'D': 8,
+	 		'E': 3,
+	 		'F': 10,
+	 		'G': 9,
+	 		'H': 12,
+	 		'I': 11,
+	 		'J': 4,
+	 		'K': 8,
+	 		'L': 10,
+	 		'M': 9,
+	 		'N': 4,
+	 		'O': 5,
+	 		'P': 6,
+	 		'Q': 3,
+	 		'R': 11,
+	 	}
+
+	 	$scope.addResources = function (count,resource) {
+	 		for (var x = 0; x<count; x++) {
+	 			$scope.deck.push(resource);
+	 		}
+	 	}
+
+	 	$scope.addResources(3,'Brick');
+	 	$scope.addResources(3,'Ore');
+	 	$scope.addResources(4,'Wood');
+	 	$scope.addResources(4,'Sheep');
+	 	$scope.addResources(4,'Wheat');
+
+	});
+</script>
+
+</html>
