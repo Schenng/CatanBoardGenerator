@@ -28,6 +28,7 @@
 	 		'Q': 3,
 	 		'R': 11,
 	 	}
+	 	
 	 	//The tokens for the expansion 5-6 game
 	 	$scope.expansionTokens = {
 	 		'A': 2,
@@ -107,7 +108,6 @@
 		        $scope.deck[j] = x;
 		    }
 	 	}
-
 	 	
 
 	});
