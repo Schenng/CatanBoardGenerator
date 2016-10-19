@@ -4,6 +4,7 @@
   height: 57.74px;
   background-color: #64C7CC;
   margin: 28.87px 0;
+
 }
 
 .hexagon:before,
@@ -24,4 +25,25 @@
   top: 100%;
   width: 0;
   border-top: 28.87px solid #64C7CC;
+}
+
+.wood {
+  background-color: #8B4513;
+  border-color:#8B4513;
+}
+
+.wheat {
+  background-color: yellow;
+}
+
+.sheep {
+  background-color: green;
+}
+
+.brick {
+  background-color: red;
+}
+
+.ore {
+  background-color: black;
 }

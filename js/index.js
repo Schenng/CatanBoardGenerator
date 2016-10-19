@@ -2,12 +2,13 @@
 
 	app.controller('MainController', function($scope) {
 	 	
-	 	//Board Configuration
-	 	$scope.board = {
-	 		key: null,
+	 	//Game Config
+	 	$scope.game = {
 	 		type: 'normal',
+	 		tiles: [],
 	 	}
-	 	//The tokens for a normal 3-4 game
+
+	 	//Tokens
 	 	$scope.normalTokens = {
 	 		'A': 5,
 	 		'B': 2,
@@ -28,8 +29,6 @@
 	 		'Q': 3,
 	 		'R': 11,
 	 	}
-	 	
-	 	//The tokens for the expansion 5-6 game
 	 	$scope.expansionTokens = {
 	 		'A': 2,
 	 		'B': 5,
@@ -59,55 +58,44 @@
 	 		'Zc': 6,
 	 	}
 
-	 	$scope.generateBoard = function () {
-	 		console.log('Board',$scope.board);
+	 	$scope.generateTiles = function() {
 
-	 		//Reset the Deck
-	 		$scope.deck = [];
+	 		if($scope.game.type == 'normal') {
+	 			$scope.addTile(4,'wood');
+	 			$scope.addTile(4,'sheep');
+	 			$scope.addTile(4,'wheat');
+	 			$scope.addTile(3,'ore');
+	 			$scope.addTile(3,'brick');
+	 			$scope.addTile(1,'desert');
 
-	 		//Build Deck
-	 		switch ($scope.board.type) {
-	 			case 'normal':
-	 				$scope.addToDeck(3,'Brick');
-				 	$scope.addToDeck(3,'Ore');
-				 	$scope.addToDeck(4,'Wood');
-				 	$scope.addToDeck(4,'Sheep');
-				 	$scope.addToDeck(4,'Wheat');
-	 			break;
+	 			$scope.scrambleTiles();
 
-	 			case 'expansion':
-	 				$scope.addToDeck(4,'Brick');
-				 	$scope.addToDeck(4,'Ore');
-				 	$scope.addToDeck(6,'Wood');
-				 	$scope.addToDeck(6,'Sheep');
-				 	$scope.addToDeck(6,'Wheat');
-	 			break;
-
-	 			default:
-	 			break;
+	 			console.log($scope.game);
 	 		}
+	 		else if ($scope.game.type == 'expansion'){
 
-	 		//Scramble Deck
-			$scope.scrambleDeck($scope.board.key);
-	 	}
+	 		}
+	 		else {
 
-	 	$scope.addToDeck = function (count,resource) {
-	 		for (var x = 0; x<count; x++) {
-	 			$scope.deck.push(resource);
 	 		}
 	 	}
 
-	 	$scope.scrambleDeck = function (key) {
-	 		console.log('Scramble Key',key);
+	 	$scope.addTile = function(count,resource) {
+	 		for (var x = 0;x<count;x++) {
+	 			$scope.game.tiles.push({'resource':resource});
+	 		}
+	 	}
 
-	 		var j, x, i;
-		    for (i = $scope.deck.length; i; i--) {
-		        j = Math.floor(Math.random() * i);
-		        x = $scope.deck[i - 1];
-		        $scope.deck[i - 1] = $scope.deck[j];
-		        $scope.deck[j] = x;
+	 	$scope.scrambleTiles = function() {
+		    for (var i = $scope.game.tiles.length - 1; i > 0; i--) {
+		        var j = Math.floor(Math.random() * (i + 1));
+		        var temp = $scope.game.tiles[i];
+		        $scope.game.tiles[i] = $scope.game.tiles[j];
+		        $scope.game.tiles[j] = temp;
 		    }
 	 	}
-	 	
 
+	 
+
+	$scope.generateTiles();
 	});
