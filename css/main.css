@@ -47,3 +47,25 @@
 .ore {
   background-color: black;
 }
+
+    
+.rowOne {
+    line-height: 129px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 25px;
+}
+.rowTwo {
+    line-height: 129px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 25px;
+    margin-left: 52px;
+    margin-top: -20px;
+}
+
+
+
+
+
+    

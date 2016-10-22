@@ -78,6 +78,39 @@
 	 		else {
 
 	 		}
+
+	 		$scope.setTiles();
+	 	}
+
+	 	$scope.setTiles = function() {
+	 		for (tile in $scope.game.tiles) {
+	 			console.log($scope.game.tiles[tile]);
+	 			var tileElement = angular.element( document.querySelector('#tile'+tile) );
+
+	 			console.log($scope.game.tiles[tile]);
+
+	 			if($scope.game.tiles[tile].resource == "wheat"){
+	 				tileElement.css('background-color','#FF9800'); 
+	 			}
+	 			else if($scope.game.tiles[tile].resource == "brick"){
+	 				tileElement.css('background-color','#F44336'); 
+	 			}
+	 			else if($scope.game.tiles[tile].resource == "wood"){
+	 				tileElement.css('background-color','#795548'); 
+	 			}
+	 			else if($scope.game.tiles[tile].resource == "sheep"){
+	 				tileElement.css('background-color','#4CAF50'); 
+	 			}
+	 			else if($scope.game.tiles[tile].resource == "ore"){
+	 				tileElement.css('background-color','#607D8B'); 
+	 			}
+	 			else if($scope.game.tiles[tile].resource == "desert"){
+	 				tileElement.css('background-color','#FFF176'); 
+	 			}
+	 			else {
+	 				console.log("Error");
+	 			}
+	 		}
 	 	}
 
 	 	$scope.addTile = function(count,resource) {
