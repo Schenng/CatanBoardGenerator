@@ -6,6 +6,7 @@
 	 	$scope.game = {
 	 		type: 'normal',
 	 		tiles: [],
+	 		name: "Board"
 	 	}
 
 	 	//Tokens
@@ -59,7 +60,7 @@
 	 	}
 
 	 	$scope.generateTiles = function() {
-
+	 		console.log("**** Generate Tiles ****");
 	 		if($scope.game.type == 'normal') {
 	 			$scope.addTile(4,'wood');
 	 			$scope.addTile(4,'sheep');
@@ -83,11 +84,9 @@
 	 	}
 
 	 	$scope.setTiles = function() {
+	 		console.log("**** setTiles ****");
 	 		for (tile in $scope.game.tiles) {
-	 			console.log($scope.game.tiles[tile]);
 	 			var tileElement = angular.element( document.querySelector('#tile'+tile) );
-
-	 			console.log($scope.game.tiles[tile]);
 
 	 			if($scope.game.tiles[tile].resource == "wheat"){
 	 				tileElement.css('background-color','#FF9800'); 
@@ -120,6 +119,7 @@
 	 	}
 
 	 	$scope.scrambleTiles = function() {
+	 		console.log("**** Scramble Tiles ****")
 		    for (var i = $scope.game.tiles.length - 1; i > 0; i--) {
 		        var j = Math.floor(Math.random() * (i + 1));
 		        var temp = $scope.game.tiles[i];
@@ -127,6 +127,23 @@
 		        $scope.game.tiles[j] = temp;
 		    }
 	 	}
+
+	 	$scope.generatePDF = function () {
+	 		console.log("**** Generate PDF ****");
+	 		html2canvas(document.getElementById('exportDiv'), {
+	            onrendered: function (canvas) {
+	                var data = canvas.toDataURL();
+	                var docDefinition = {
+	                    content: [{
+	                        image: data,
+	                        width: 500,
+	                    }]
+	                };
+	                pdfMake.createPdf(docDefinition).download($scope.game.name);
+	            }
+	        });	
+	 	}
+	 	
 
 	 
 
