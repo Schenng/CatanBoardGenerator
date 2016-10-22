@@ -1,70 +1,47 @@
-.hexagon {
-  position: relative;
-  width: 100px; 
-  height: 57.74px;
-  background-color: #64C7CC;
-  margin: 28.87px 0;
+.tile{
 
 }
 
-.hexagon:before,
-.hexagon:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
+.row1{
+  width:120px;
+  height:120px;
+  float:left;
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 115px 115px;
 }
-
-.hexagon:before {
-  bottom: 100%;
-  border-bottom: 28.87px solid #64C7CC;
+.row2{
+  width:120px;
+  height:120px;
+  float:left;
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 115px 115px;
 }
-
-.hexagon:after {
-  top: 100%;
-  width: 0;
-  border-top: 28.87px solid #64C7CC;
+.row3{
+  width:120px;
+  height:120px;
+  float:left;
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 115px 115px;
 }
-
-.wood {
-  background-color: #8B4513;
-  border-color:#8B4513;
+.row4{
+  width:120px;
+  height:120px;
+  float:left;
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 115px 115px;
 }
-
-.wheat {
-  background-color: yellow;
+.row5{
+  width:120px;
+  height:120px;
+  float:left;
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 115px 115px;
 }
-
-.sheep {
-  background-color: green;
-}
-
-.brick {
-  background-color: red;
-}
-
-.ore {
-  background-color: black;
-}
-
-    
-.rowOne {
-    line-height: 129px;
-    display: inline-block;
-    position: relative;
-    margin-bottom: 25px;
-}
-.rowTwo {
-    line-height: 129px;
-    display: inline-block;
-    position: relative;
-    margin-bottom: 25px;
-    margin-left: 52px;
-    margin-top: -20px;
-}
-
-
 
 
 

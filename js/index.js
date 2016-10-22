@@ -86,25 +86,25 @@
 	 	$scope.setTiles = function() {
 	 		console.log("**** setTiles ****");
 	 		for (tile in $scope.game.tiles) {
-	 			var tileElement = angular.element( document.querySelector('#tile'+tile) );
+	 			var tileElement = angular.element( document.querySelector('#tile' + tile));
 
 	 			if($scope.game.tiles[tile].resource == "wheat"){
-	 				tileElement.css('background-color','#FF9800'); 
+	 				tileElement.css('background-image','url("resources/wheat.png")'); 
 	 			}
 	 			else if($scope.game.tiles[tile].resource == "brick"){
-	 				tileElement.css('background-color','#F44336'); 
+	 				tileElement.css('background-image','url("resources/brick.png")'); 
 	 			}
 	 			else if($scope.game.tiles[tile].resource == "wood"){
-	 				tileElement.css('background-color','#795548'); 
+	 				tileElement.css('background-image','url("resources/wood.png")'); 
 	 			}
 	 			else if($scope.game.tiles[tile].resource == "sheep"){
-	 				tileElement.css('background-color','#4CAF50'); 
+	 				tileElement.css('background-image','url("resources/sheep.png")'); 
 	 			}
 	 			else if($scope.game.tiles[tile].resource == "ore"){
-	 				tileElement.css('background-color','#607D8B'); 
+	 				tileElement.css('background-image','url("resources/ore.png")'); 
 	 			}
 	 			else if($scope.game.tiles[tile].resource == "desert"){
-	 				tileElement.css('background-color','#FFF176'); 
+	 				tileElement.css('background-image','url("resources/desert.png")'); 
 	 			}
 	 			else {
 	 				console.log("Error");
