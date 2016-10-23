@@ -2,14 +2,14 @@
 
 	app.controller('MainController', function($scope) {
 	 	
-	 	//Game Config
+	 	/* Game Config */
 	 	$scope.game = {
 	 		type: 'normal',
 	 		tiles: [],
-	 		name: "Board"
+	 		name: ""
 	 	}
 
-	 	//Tokens
+	 	/* Different token maps */
 	 	$scope.normalTokens = {
 	 		'0': 5,
 	 		'1': 2,
@@ -59,6 +59,7 @@
 	 		'Zc': 6,
 	 	}
 
+	 	/* Generate the deck */
 	 	$scope.generateTiles = function() {
 	 		console.log("**** Generate Tiles ****");
 	 		if($scope.game.type == 'normal') {
@@ -83,6 +84,7 @@
 	 		$scope.setTiles();
 	 	}
 
+	 	/* Generate the board */
 	 	$scope.setTiles = function() {
 	 		console.log("**** setTiles ****");
 	 		$scope.token = [];
@@ -123,12 +125,14 @@
 	 		}
 	 	}
 
+	 	/* Add tiles to the board */
 	 	$scope.addTile = function(count,resource) {
 	 		for (var x = 0;x<count;x++) {
 	 			$scope.game.tiles.push({'resource':resource});
 	 		}
 	 	}
 
+	 	/* Scramble the tiles */
 	 	$scope.scrambleTiles = function() {
 	 		console.log("**** Scramble Tiles ****")
 		    for (var i = $scope.game.tiles.length - 1; i > 0; i--) {
@@ -139,9 +143,10 @@
 		    }
 	 	}
 
-	 	$scope.generatePDF = function () {
+	 	/* Generate the PDF */
+	 	$scope.generatePDF = function (divID) {
 	 		console.log("**** Generate PDF ****");
-	 		html2canvas(document.getElementById('exportDiv'), {
+	 		html2canvas(document.getElementById(divID), {
 	            onrendered: function (canvas) {
 	                var data = canvas.toDataURL();
 	                var docDefinition = {
@@ -155,15 +160,14 @@
 	        });	
 	 	}
 	 	
-	 	$scope.printDiv = function(divName) {
-			  var printContents = document.getElementById(divName).innerHTML;
-			  var popupWin = window.open('', '_blank', 'width=750px,height=550px');
+	 	/* Print the board */
+	 	$scope.printDiv = function(divID) {
+			  var printContents = document.getElementById(divID).innerHTML;
+			  var popupWin = window.open('', '_blank', 'width=700px,height=500px');
 			  popupWin.document.open();
-			  popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="css/main.css" /></head><body onload="window.print()">' + printContents + '</body></html>');
+			  popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="css/main.css" /></head><body onload="window.print()">' + printContents + '<script>setTimeout(function(){}, 2000);</script></body></html>');
 			  popupWin.document.close();
-			} 
+		} 
 
-	 
-
-	$scope.generateTiles();
+		$scope.generateTiles();
 	});

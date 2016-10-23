@@ -42,7 +42,7 @@
 
 .circle {
   border-radius: 50%;
-  border: 2px solid black;
+  border: 2px solid #424242;
   background-color:#FFF3E0;
   background-position: center; 
   width: 50px;
@@ -51,8 +51,22 @@
   line-height:50px;
   margin-left: 30%;
   margin-top: 30%;
-
 }
+
+/*Allows images to load*/
+
+@media print
+{
+    * {-webkit-print-color-adjust:exact;};
+
+    body{
+        height: 100%;
+        margin: 0;
+        vertical-align: middle;
+    }
+}
+
+
 
 
 
