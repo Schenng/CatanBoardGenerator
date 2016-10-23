@@ -73,40 +73,78 @@
 					
 					<button type="submit"
 					class="btn btn-danger" ng-click="scrambleTiles();setTiles();">Scramble</button>
-					<button type="submit" ng-click="generatePDF()" class="btn btn-info">Download</button>
+					<button type="submit" ng-click="printDiv('exportDiv')" class="btn btn-info">Download</button>
 				</form>
 			</div>
 
 			<div class="col-sm-8 col-md-8 col-lg-8"> 
-				<div style="position:absolute;width:700px;height:500px;padding:10px">
+				<div id = "exportDiv" style="position:absolute;width:700px;height:500px;padding:10px">
 					<div style="position: absolute;left: 200px">
-						<div class="row1 tile" id="tile0"></div>
-						<div class="row1 tile" id="tile1"></div>
-						<div class="row1 tile" id="tile2"></div>
+						<div class="row1 tile" id="tile0">
+							<div class="circle">{{token[0]}}</div>
+						</div>
+						<div class="row1 tile" id="tile1">
+							<div class="circle">{{token[1]}}</div>
+						</div>
+						<div class="row1 tile" id="tile2">
+							<div class="circle">{{token[2]}}</div>
+						</div>
 					</div>
 					<div style="position: absolute;left: 140px;top:100px">
-						<div class="row2 tile" style="clear:both" id="tile3"></div>
-					 	<div class="row2 tile" id="tile4"></div>
-						<div class="row2 tile" id="tile5"></div>
-						<div class="row2 tile" id="tile6"></div>
+						<div class="row2 tile" style="clear:both" id="tile3">
+							<div class="circle">{{token[3]}}</div>
+						</div>
+					 	<div class="row2 tile" id="tile4">
+							<div class="circle">{{token[4]}}</div>
+					 	</div>
+						<div class="row2 tile" id="tile5">
+							<div class="circle">{{token[5]}}</div>
+						</div>
+						<div class="row2 tile" id="tile6">
+							<div class="circle">{{token[6]}}</div>
+						</div>
 					</div>
 					<div style="position: absolute;left: 80px;top:190px">
-						<div class="row3 tile" style="clear:both" id="tile7"></div>
-						<div class="row3 tile" id="tile8"></div>
-						<div class="row3 tile" id="tile9"></div>
-						<div class="row3 tile" id="tile10"></div>
-						<div class="row3 tile" id="tile11"></div>
+						<div class="row3 tile" style="clear:both" id="tile7">
+							<div class="circle">{{token[7]}}</div>
+						</div>
+						<div class="row3 tile" id="tile8">
+							<div class="circle">{{token[8]}}</div>
+						</div>
+						<div class="row3 tile" id="tile9">
+							<div class="circle">{{token[9]}}</div>
+						</div>
+						<div class="row3 tile" id="tile10">
+							<div class="circle">{{token[10]}}</div>
+						</div>
+						<div class="row3 tile" id="tile11">
+							<div class="circle">{{token[11]}}</div>
+						</div>
 					</div>
 					<div style="position: absolute;left: 140px;top:280px">
-						<div class="row4 tile" style="clear:both" id="tile12"></div>
-						<div class="row4 tile" id="tile13"></div>
-						<div class="row4 tile" id="tile14"></div>
-						<div class="row4 tile" id="tile15"></div>	
+						<div class="row4 tile" style="clear:both" id="tile12">
+							<div class="circle">{{token[12]}}</div>
+						</div>
+						<div class="row4 tile" id="tile13">
+							<div class="circle">{{token[13]}}</div>
+						</div>
+						<div class="row4 tile" id="tile14">
+							<div class="circle">{{token[14]}}</div>
+						</div>
+						<div class="row4 tile" id="tile15">
+							<div class="circle">{{token[15]}}</div>
+						</div>	
 					</div>
 					<div style="position: absolute;left: 200px;top:370px">
-						<div class="row5 tile" style="clear:both" id="tile16"></div>
-						<div class="row5 tile" id="tile17"></div>
-						<div class="row5 tile" id="tile18"></div>
+						<div class="row5 tile" style="clear:both" id="tile16">
+							<div class="circle">{{token[16]}}</div>
+						</div>
+						<div class="row5 tile" id="tile17">
+							<div class="circle">{{token[17]}}</div>
+						</div>
+						<div class="row5 tile" id="tile18">
+							<div class="circle">{{token[18]}}</div>
+						</div>
 					</div>
 				</div>		
 			</div>

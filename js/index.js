@@ -11,24 +11,24 @@
 
 	 	//Tokens
 	 	$scope.normalTokens = {
-	 		'A': 5,
-	 		'B': 2,
-	 		'C': 6,
-	 		'D': 8,
-	 		'E': 3,
-	 		'F': 10,
-	 		'G': 9,
-	 		'H': 12,
-	 		'I': 11,
-	 		'J': 4,
-	 		'K': 8,
-	 		'L': 10,
-	 		'M': 9,
-	 		'N': 4,
-	 		'O': 5,
-	 		'P': 6,
-	 		'Q': 3,
-	 		'R': 11,
+	 		'0': 5,
+	 		'1': 2,
+	 		'2': 6,
+	 		'3': 8,
+	 		'4': 3,
+	 		'5': 10,
+	 		'6': 9,
+	 		'7': 12,
+	 		'8': 11,
+	 		'9': 4,
+	 		'10': 8,
+	 		'11': 10,
+	 		'12': 9,
+	 		'13': 4,
+	 		'14': 5,
+	 		'15': 6,
+	 		'16': 3,
+	 		'17': 11,
 	 	}
 	 	$scope.expansionTokens = {
 	 		'A': 2,
@@ -85,30 +85,41 @@
 
 	 	$scope.setTiles = function() {
 	 		console.log("**** setTiles ****");
+	 		$scope.token = [];
+	 		var tokenCounter = 0;
 	 		for (tile in $scope.game.tiles) {
+
 	 			var tileElement = angular.element( document.querySelector('#tile' + tile));
 
 	 			if($scope.game.tiles[tile].resource == "wheat"){
 	 				tileElement.css('background-image','url("resources/wheat.png")'); 
+	 				$scope.token[tile] = $scope.normalTokens[tokenCounter];
 	 			}
 	 			else if($scope.game.tiles[tile].resource == "brick"){
 	 				tileElement.css('background-image','url("resources/brick.png")'); 
+	 				$scope.token[tile] = $scope.normalTokens[tokenCounter];
 	 			}
 	 			else if($scope.game.tiles[tile].resource == "wood"){
 	 				tileElement.css('background-image','url("resources/wood.png")'); 
+	 				$scope.token[tile] = $scope.normalTokens[tokenCounter];
 	 			}
 	 			else if($scope.game.tiles[tile].resource == "sheep"){
 	 				tileElement.css('background-image','url("resources/sheep.png")'); 
+	 				$scope.token[tile] = $scope.normalTokens[tokenCounter];
 	 			}
 	 			else if($scope.game.tiles[tile].resource == "ore"){
 	 				tileElement.css('background-image','url("resources/ore.png")'); 
+	 				$scope.token[tile] = $scope.normalTokens[tokenCounter];
 	 			}
 	 			else if($scope.game.tiles[tile].resource == "desert"){
 	 				tileElement.css('background-image','url("resources/desert.png")'); 
+	 				$scope.token[tile] = 'Desert';
+	 				tokenCounter = tokenCounter - 1//Do not increment the tile number
 	 			}
 	 			else {
 	 				console.log("Error");
 	 			}
+	 			tokenCounter++;
 	 		}
 	 	}
 
@@ -144,6 +155,13 @@
 	        });	
 	 	}
 	 	
+	 	$scope.printDiv = function(divName) {
+			  var printContents = document.getElementById(divName).innerHTML;
+			  var popupWin = window.open('', '_blank', 'width=750px,height=550px');
+			  popupWin.document.open();
+			  popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="css/main.css" /></head><body onload="window.print()">' + printContents + '</body></html>');
+			  popupWin.document.close();
+			} 
 
 	 
 
