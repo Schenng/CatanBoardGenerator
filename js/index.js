@@ -6,8 +6,10 @@
 	 	$scope.game = {
 	 		type: 'normal',
 	 		tiles: [],
-	 		name: ""
+	 		name: "",
 	 	}
+
+	 	$scope.tab = 'board';
 
 	 	/* Different token maps */
 	 	$scope.normalTokens = {
