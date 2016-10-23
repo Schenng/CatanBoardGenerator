@@ -53,6 +53,15 @@
   margin-top: 30%;
 }
 
+.card {
+  width:auto;
+  height:150px;
+}
+
+.cardCounter {
+  font-size:25px;
+  font-weight:200;
+}
 /*Allows images to load*/
 
 @media print

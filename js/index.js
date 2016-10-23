@@ -7,6 +7,13 @@
 	 		type: 'normal',
 	 		tiles: [],
 	 		name: "",
+	 		cards: {
+	 			'brick':15,
+	 			'ore':15,
+	 			'wheat':20,
+	 			'sheep':20,
+	 			'wood':20
+	 		}
 	 	}
 
 	 	$scope.tab = 'board';

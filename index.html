@@ -2,7 +2,7 @@
 <html lang="en" ng-app="CatanBoardGenerator">
   
   <head>
-    <title>Catan Board Generator</title>
+    <title>Catan Generator</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -88,27 +88,27 @@
 
 				<div ng-show="tab == 'cards'">
 						
-						<legend>Cards</legend>			
+						<legend>Number of Cards</legend>			
 							<div class="form-group row">
 							  <label class="col-xs-2">Brick:</label>
 							  <div class="col-xs-10">
-							    <input class="form-control" type="number" value="15" >
+							    <input class="form-control" type="number" ng-model="game.cards.brick">
 							  </div>
 							  <label class="col-xs-2">Ore:</label>
 							  <div class="col-xs-10">
-							    <input class="form-control" type="number" value="15" >
+							    <input class="form-control" type="number" ng-model="game.cards.ore">
 							  </div>
 							  <label class="col-xs-2">Wheat:</label>
 							  <div class="col-xs-10">
-							    <input class="form-control" type="number" value="20" >
+							    <input class="form-control" type="number" ng-model="game.cards.wheat">
 							  </div>
 							  <label class="col-xs-2">Sheep:</label>
 							  <div class="col-xs-10">
-							    <input class="form-control" type="number" value="20" >
+							    <input class="form-control" type="number" ng-model="game.cards.sheep">
 							  </div>
 							  <label class="col-xs-2">Wood:</label>
 							  <div class="col-xs-10">
-							    <input class="form-control" type="number" value="20" >
+							    <input class="form-control" type="number" ng-model="game.cards.wood">
 							  </div>
 							</div>
 	
@@ -196,6 +196,33 @@
 					</div>
 				</div>
 				<div ng-show="tab == 'cards'">
+					<div style="padding-left:50px">
+						<div class="row">
+							<div class="col-sm-4">
+								<img src="resources/brick_card.png" class="card"></img>
+								<span class="cardCounter">X {{game.cards.brick}}</span>
+							</div>
+							<div class="col-sm-4">
+								<img src="resources/ore_card.png" class="card"></img>
+								<span class="cardCounter">X {{game.cards.ore}}</span>
+							</div>
+							<div class="col-sm-4">
+								<img src="resources/wheat_card.png" class="card"></img>
+								<span class="cardCounter">X {{game.cards.wheat}}</span>
+							</div>
+						</div>
+						<div class="row">
+							
+							<div class="col-sm-4">
+								<img src="resources/sheep_card.png" class="card"></img>
+								<span class="cardCounter">X {{game.cards.sheep}}</span>
+							</div>
+							<div class="col-sm-4">
+								<img src="resources/wood_card.png" class="card"></img>
+								<span class="cardCounter">X {{game.cards.wood}}</span>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div ng-show="tab == 'pieces'">
 				</div>
