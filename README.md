@@ -1,13 +1,12 @@
 # CatanBoardGenerator
 Generate a Settlers of Catan game.
 
-Current Features:
+<b>Current Features:</b>
 - Generate a 3-4 player Catan Board + print.
 - Generate all resources cards + export to pdf.
 - Generate the Longest Road, Largest Army, and Building Cost cards.
 
-
-ToDo:
+<b>ToDo:</b>
 - Different board types (expansion,seafarers,cities and knights).
 - Landscape Print for the board.
 - Editable size for board.
