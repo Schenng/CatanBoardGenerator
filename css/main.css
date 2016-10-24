@@ -63,12 +63,6 @@
   margin-top: 30%;
 }
 
-.miscCard {
-  height:190px;
-  padding:10px;
-  width:auto;
-}
-
 .tile{
     transition: all .2s ease-in-out;
 }
@@ -85,6 +79,14 @@
   font-size:25px;
   font-weight:200;
 }
+
+.miscCard {
+  transition: all .2s ease-in-out;
+  height:190px;
+  padding:10px;
+  width:auto;
+}
+.miscCard:hover { transform: scale(.9); }
 
 
 

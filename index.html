@@ -12,14 +12,13 @@
 
    	<script src="js/index.js" ></script>
    	<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+   	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
 
    	<script src='js/pdfmake.min.js'></script>
  	<script src='js/vfs_fonts.js'></script>
  	<script src='js/html2canvas.js'></script>
  	<script src='js/html2canvas.svg.js'></script>
-
- 	 <script src='js/dataURI.js'></script>
-
 
  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
 
@@ -145,6 +144,7 @@
 			<!-- Display Area -->
 			<div class="col-sm-8 col-md-8 col-lg-8"> 
 
+				<!-- Display Area - Board -->
 				<div ng-show="tab == 'board'">
 					<div id = "exportDiv" style="position:absolute;width:700px;height:500px;padding:10px">
 						<div style="position: absolute;left: 200px">
@@ -216,49 +216,104 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- Display Area - Card -->
 				<div ng-show="tab == 'cards'">
 					<div style="padding-left:50px">
 						<div class="row">
-							<div class="col-sm-4">
+							<div class="col-sm-2">
 								<img src="resources/brick_card.png" class="card"></img>
+							</div>
+							<div class="col-sm-2" style="margin-top:50px">
 								<span class="cardCounter">X {{game.cards.brick}}</span>
+								<div>
+									<i class="fa fa-arrow-circle-o-up fa-2x" ng-click="game.cards.brick = game.cards.brick + 1 "></i>
+									<i class="fa fa-arrow-circle-o-down fa-2x" ng-click="game.cards.brick = game.cards.brick - 1 "></i>
+								</div>
 							</div>
-							<div class="col-sm-4">
+							<div class="col-sm-2">
 								<img src="resources/ore_card.png" class="card"></img>
-								<span class="cardCounter">X {{game.cards.ore}}</span>
 							</div>
-							<div class="col-sm-4">
+							<div class="col-sm-2" style="margin-top:50px">
+								<span class="cardCounter">X {{game.cards.ore}}</span>
+								<div>
+									<i class="fa fa-arrow-circle-o-up fa-2x" ng-click="game.cards.ore = game.cards.ore + 1 "></i>
+									<i class="fa fa-arrow-circle-o-down fa-2x" ng-click="game.cards.ore = game.cards.ore - 1 "></i>
+								</div>
+							</div>
+							<div class="col-sm-2">
 								<img src="resources/wheat_card.png" class="card"></img>
+							</div>
+							<div class="col-sm-2" style="margin-top:50px">
 								<span class="cardCounter">X {{game.cards.wheat}}</span>
+								<div>
+									<i class="fa fa-arrow-circle-o-up fa-2x" ng-click="game.cards.wheat = game.cards.wheat + 1 "></i>
+									<i class="fa fa-arrow-circle-o-down fa-2x" ng-click="game.cards.wheat = game.cards.wheat - 1 "></i>
+								</div>
 							</div>
 						</div>
 						<div class="row">
 							
-							<div class="col-sm-4">
+							<div class="col-sm-2">
 								<img src="resources/sheep_card.png" class="card"></img>
-								<span class="cardCounter">X {{game.cards.sheep}}</span>
 							</div>
-							<div class="col-sm-4">
+							<div class="col-sm-2" style="margin-top:50px">
+								<span class="cardCounter">X {{game.cards.sheep}}</span>
+								<div>
+									<i class="fa fa-arrow-circle-o-up fa-2x" ng-click="game.cards.sheep = game.cards.sheep + 1 "></i>
+									<i class="fa fa-arrow-circle-o-down fa-2x" ng-click="game.cards.sheep = game.cards.sheep - 1 "></i>
+								</div>
+							</div>
+							<div class="col-sm-2">
 								<img src="resources/wood_card.png" class="card"></img>
+							</div>
+							<div class="col-sm-2" style="margin-top:50px">
 								<span class="cardCounter">X {{game.cards.wood}}</span>
+								<div>
+									<i class="fa fa-arrow-circle-o-up fa-2x" ng-click="game.cards.wood = game.cards.wood + 1 "></i>
+									<i class="fa fa-arrow-circle-o-down fa-2x" ng-click="game.cards.wood = game.cards.wood - 1 "></i>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<!-- Display Area - Misc -->
 				<div ng-show="tab == 'misc'">
+
 					<div class="row" style="padding-left:50px">
-						
-						<div class="col-sm-6">
+						<div class="col-sm-3">
 							<img class="miscCard" src="resources/largestArmy.png"></img>
+						</div>
+						<div class="col-sm-3" style="margin-top:50px">
 							<span class="cardCounter">X {{game.misc.largestArmy}}</span>
+							<div>
+								<i class="fa fa-arrow-circle-o-up fa-2x" ng-click="game.misc.largestArmy = game.misc.largestArmy + 1 "></i>
+								<i class="fa fa-arrow-circle-o-down fa-2x" ng-click="game.misc.largestArmy = game.misc.largestArmy - 1 "></i>
+							</div>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-3">
 							<img class="miscCard" src="resources/longestRoad.png"></img>
-							<span class="cardCounter">X {{game.misc.longestRoad}}</span>
 						</div>
-						<div class="col-sm-12">
+						<div class="col-sm-3" style="margin-top:50px">
+							<span class="cardCounter">X {{game.misc.longestRoad}}</span>
+							<div>
+								<i class="fa fa-arrow-circle-o-up fa-2x" ng-click="game.misc.longestRoad = game.misc.longestRoad + 1 "></i>
+								<i class="fa fa-arrow-circle-o-down fa-2x" ng-click="game.misc.longestRoad = game.misc.longestRoad - 1 "></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="row" style="padding-left:50px">
+						<div class="col-sm-3">
 							<img class="miscCard" src="resources/buildingCost.png"></img>
+						</div>
+						<div class="col-sm-3" style="margin-top:50px">
 							<span class="cardCounter">X {{game.misc.buildingCost}}</span>
+							<div>
+								<i class="fa fa-arrow-circle-o-up fa-2x" ng-click="game.misc.buildingCost = game.misc.buildingCost + 1 "></i>
+								<i class="fa fa-arrow-circle-o-down fa-2x" ng-click="game.misc.buildingCost = game.misc.buildingCost - 1 "></i>
+							</div>
 						</div>
 					</div>
 				</div>
