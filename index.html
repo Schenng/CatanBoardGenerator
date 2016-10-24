@@ -10,42 +10,41 @@
 
    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 
-   	<script src="js/index.js" ></script>
    	<link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
    	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-
+   	<script src="js/index.js" ></script>
    	<script src='js/pdfmake.min.js'></script>
  	<script src='js/vfs_fonts.js'></script>
  	<script src='js/html2canvas.js'></script>
  	<script src='js/html2canvas.svg.js'></script>
-
  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
-
-
-   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
   </head>
   
   <body ng-controller="MainController" style="background-image: url('resources/background.jpg');">
   	<div class="container">
   		
-		    <h1>Catan Board Generator v1</h1>
+		<h1>Catan Board Generator v1</h1>
+
 		<hr style="height:3px">
+
 		<!-- Board -->
 		<div class="row">
 			<div class="col-md-4" style="background-color:white;border:1px solid #EEE;border-radius:10px;padding-top:20px;padding-bottom:20px">
 
 				<!-- Select Tab -->
 				<ul class="nav nav-tabs">
-				  <li ng-class="{active: tab == 'board'}"><a ng-click="tab = 'board'">Board</a></li>
-				  <li ng-class="{active: tab == 'cards'}"><a ng-click="tab = 'cards'">Cards</a></li>
-				  <li ng-class="{active: tab == 'misc'}"><a ng-click="tab = 'misc'">Miscellaneous</a></li>
+				  	<li ng-class="{active: tab == 'board'}"><a ng-click="tab = 'board'">Board</a></li>
+				  	<li ng-class="{active: tab == 'cards'}"><a ng-click="tab = 'cards'">Cards</a></li>
+				  	<li ng-class="{active: tab == 'misc'}"><a ng-click="tab = 'misc'">Miscellaneous</a></li>
 				</ul>
+
 				<br>
 
-				<!-- Menu-->
+				<!-- Left-Side Menu-->
 				<div ng-show="tab == 'board'">
 					<form>
 						<fieldset class="form-group">
@@ -90,6 +89,7 @@
 						</fieldset>
 						<button type="submit"class="btn btn-default" style="width:100%;margin-top:20px" ng-click="scrambleTiles();setTiles();">Scramble</button>
 					</form>
+
 					<button type="submit" ng-click="generateBoard('exportDiv')" class="btn btn-info" style="display:block;margin-top:20px;width:100%">Print</button>
 				</div>
 
@@ -117,6 +117,7 @@
 							<input min="0" class="form-control" type="number" ng-model="game.cards.wood">
 						</div>
 					</div>
+
 					<button type="submit"class="btn btn-info" style="width:100%;margin-top:20px" ng-click="generateCards();">Generate and Print</button>
 				</div>
 
@@ -136,6 +137,7 @@
 							<input min="0" class="form-control" type="number" ng-model="game.misc.buildingCost">
 						</div>
 					</div>
+
 					<button type="submit"class="btn btn-info" style="width:100%;margin-top:20px" ng-click="generateMisc();">Generate and Print</button>
 				</div>
 
@@ -317,10 +319,9 @@
 						</div>
 					</div>
 				</div>
-
+				
 			</div>
 		<div>
-
 	</div>
   </body>
 </html>

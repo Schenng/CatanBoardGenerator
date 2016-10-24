@@ -15,7 +15,8 @@ ToDo:
 - Editable size for board.
 - Developement Cards.
 - Oragami pieces.
-
+- Make it responsive
+- Clean up the CSS
 
 
 
