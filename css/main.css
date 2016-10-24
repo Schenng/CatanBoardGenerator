@@ -1,3 +1,13 @@
+@media print
+{
+    * {-webkit-print-color-adjust:exact;};
+
+    body{
+        height: 100%;
+        margin: 0;
+        vertical-align: middle;
+    }
+}
 
 .row1{
   width:120px;
@@ -53,26 +63,27 @@
   margin-top: 30%;
 }
 
+.miscCard {
+  height:190px;
+  padding:10px;
+  width:auto;
+}
+
+.tile{
+    transition: all .2s ease-in-out;
+}
+.tile:hover { transform: scale(.9); }
+
 .card {
+  transition: all .2s ease-in-out;
   width:auto;
   height:150px;
 }
+.card:hover {transform: scale(0.9);}
 
 .cardCounter {
   font-size:25px;
   font-weight:200;
-}
-/*Allows images to load*/
-
-@media print
-{
-    * {-webkit-print-color-adjust:exact;};
-
-    body{
-        height: 100%;
-        margin: 0;
-        vertical-align: middle;
-    }
 }
 
 
